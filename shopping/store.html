@@ -4,6 +4,10 @@
         <title> My Cart </title>
         <meta name="description" content="This is the description">
         <link rel="stylesheet" href="styles.css" />
+        <script src="store.js" async></script> 
+        <!--links in head tag load in the bg along with the page content; it is diff
+        for js; by default, they load before the file and nothing else can be loaded-> therfore we
+        give async tag-->
     </head>
     <body>
         <section class="ctn cont-sect">
@@ -80,7 +84,7 @@
                     <span class="cart-price cart-col">$19.99</span>
                     <div class="cart-qnty cart-col">
                         <input class="cart-qnty-ip" type="number" value="1">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
+                        <button class="btn btn-rem" type="button">REMOVE</button>
                     </div>
                 </div>
                 <div class="cart-row">
@@ -91,7 +95,7 @@
                     <span class="cart-price cart-col">$9.99</span>
                     <div class="cart-qnty cart-col">
                         <input class="cart-qnty-ip" type="number" value="2">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
+                        <button class="btn btn-rem" type="button">REMOVE</button>
                     </div>
                 </div>
             </div>

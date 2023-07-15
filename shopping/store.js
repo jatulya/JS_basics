@@ -1,27 +1,39 @@
-var remItemBtn = document.getElementsByClassName("btn-rem")
-//finds all division that is described in the class 'btn-rem'
-//here, we are looking for remove buttons
-console.log(remItemBtn)
+//since js loads in the bg, if it gets loaded b4 main page, all the searching for divs
+//would show no vals -> checking if doc is ready is not
+if (document.readyState == 'loading')
+    document.addEventListener('DOMContentLoaded', ready) 
+    //if it's loading, it will wait for it to finish loading
+else
+    ready() 
 
-var i,button, btnClicked
-
-for (i=0;i<remItemBtn.length;i++)
+function ready()
 {
-    button = remItemBtn[i] //storing the current element
-    //when button is 'clicked', event listener is added & performs fnct described
-    //event listener returns an event
-    button.addEventListener('click', function(event)
+    var remItemBtn = document.getElementsByClassName("btn-rem")
+    //finds all division that is described in the class 'btn-rem'
+    //here, we are looking for remove buttons
+    console.log(remItemBtn)  
+    var i,button
+    
+    for (i=0;i<remItemBtn.length;i++)
     {
-        btnClicked = event.target  //it is same as the button that is clicked
-        
-        btnClicked.parentElement.parentElement.remove()
-        //1st parentElement -> div class="cart-qnty cart-col" -> it is inside here that element exists
-        //2nd -> parent of previous one -> div class="cart-row"
-        // we remove this element when the button is clicked
+        button = remItemBtn[i] //storing the current element
+        //when button is 'clicked', event listener is added & performs fnct described
+        //event listener returns an event
+        button.addEventListener('click', remCartItem)
+    }     
+}
 
-        updateCartTot()
-        //since this is called after the removal, total will change
-    })
+function remCartItem(event)
+{
+    var btnClicked = event.target  //it is same as the button that is clicked
+            
+    btnClicked.parentElement.parentElement.remove()
+    //1st parentElement -> div class="cart-qnty cart-col" -> it is inside here that element exists
+    //2nd -> parent of previous one -> div class="cart-row"
+    // we remove this element when the button is clicked
+    
+    updateCartTot()
+    //since this is called after the removal, total will change
 }
 
 function updateCartTot()
