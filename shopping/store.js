@@ -30,11 +30,25 @@ function updateCartTot()
     //but we have only one element in it, so the index [0]
     cartItemCtn = document.getElementsByClassName('cart-items')[0]
     cartRows = cartItemCtn.getElementsByClassName('cart-row')
-    var cartItemCtn, cartRows, price
+    var cartItemCtn, cartRows, priceEle, qntyEleprice, qnty
+    total = 0
 
     for (i=0;i<cartRows.length;i++)
     {
-        price = cartRows[i].getElementsByClassName('cart-price')[0]
+        priceEle = cartRows[i].getElementsByClassName('cart-price')[0]
+        qntyEle = cartRows[i].getElementsByClassName('cart-qnty-ip')[0]
+        //these two line of codes returns the line div contaning the class, not the text in it
+        
+        price = parseFloat(priceEle.innerText.replace('$',''))
+        //priceEle.innerText -> returns $9.99 (9.99 is an eg)
+        //replace removes '$' with '' 
+        //parseFloat converts it to float value
+
+        qnty = qntyEle.value //it is inside an input bar -> there are taken as values, not texts
+        total = total + (price*qnty)
     }
+
+    //changing the inner text area of the price to the one we got
+    document.getElementsByClassName('cart-tot-pri')[0].innerText = '$' + total
 
 }
