@@ -11,34 +11,59 @@ function ready()
     //add to cart
     var addItem = document.getElementsByClassName("shop-item-button")
     for (i=0;i<addItem.length;i++)
-    {
         addItem[i].addEventListener('click', addToCart)
-    }
 
     //if quantity changed
     var qntyIp = document.getElementsByClassName("cart-qnty-ip")
     for (i=0;i<qntyIp.length;i++)
-    {
         qntyIp[i].addEventListener('change', qntyChanged)
-    }   
 
     //removing items from cart
     var remItemBtn = document.getElementsByClassName("btn-rem")
-    //finds all division that is described in the class 'btn-rem'
-    console.log(remItemBtn)  
     var i,button   
     for (i=0;i<remItemBtn.length;i++)
-    {
-        button = remItemBtn[i] //storing the current element
         //when button is 'clicked', event listener is added & performs fnct described
         //event listener returns an event
-        button.addEventListener('click', remCartItem)
-    } 
+        remItemBtn[i].addEventListener('click', remCartItem)
 }
 
 function addToCart(event)
 {
     var item = event.target
+    var shopItem = item.parentElement.parentElement
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+    var img = shopItem.getElementsByClassName('shop-item-img')[0].src
+    addItemToCart(title, price, img)
+    console.log(title, price, img)
+    //updateCartTot()
+}
+function addItemToCart(title, price, img)
+{
+    //creates a new divison element 
+    var newRow = document.createElement('div')
+    //adds every classes/divisions in the 'cart-row' to the newRow
+    newRow.classList.add('cart-row')
+    var mainCtn = document.getElementsByClassName('cart-items')[0]
+    
+    //checking if the cart-item clicked already exists
+    var cartItems = mainCtn.getElementsByClassName('cart-item-title') 
+    for (var i = 0; i<cartItems.length; i++)
+        if (cartItems[i].innerText == title) 
+           return alert("This Item already exists")
+               
+    //innerHtml -> for styling the newRow, we copy the contents of html as it is and use variable
+    newRow.innerHTML = `
+        <div class="cart-item cart-col">
+            <img class="cart-item-img" src="${img}" width="100" height="100">
+            <span class="cart-item-title">${title}</span>
+        </div>
+        <span class="cart-price cart-col">${price}</span>
+        <div class="cart-qnty cart-col">
+            <input class="cart-qnty-ip" type="number" value="1">
+            <button class="btn btn-rem" type="button">REMOVE</button>
+        </div>`
+    mainCtn.append(newRow)
     updateCartTot()
 }
 
