@@ -17,9 +17,39 @@ html, body {
     margin: 0;
     padding: 0;
     min-height: 100%;
+   background-color: var(--bg);
+}
+:root{
+    --theme: #97979c;
+    --black: #000000;
+    --band: #ffffff;
+    --bg: #b7aeae;
+}
+.light-mode{
+    --theme: #e6a1d3;
+    --black: #ed0a0a;
+    --band: #29a45f;
+    --bg: #d2c681;
+}
+.theme-btn{
+    top: 5%;
+    right: 2.5%;
+    width : 65px;
+    height: 65px;
+    border-radius: 50px;
+    background-color: var(--theme);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+i{
+    font-size: 1.5rem;
+    color: var(--black);
 }
 .main-head {
-    background-color: rgba(0, 0, 0, .6);
+    background-color: var(--black);
     background-image: url("Images/Header Background.jpg");
     background-blend-mode: multiply;
     background-size: cover;

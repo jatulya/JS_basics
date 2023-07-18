@@ -8,6 +8,9 @@ else
 
 function ready()
 {   
+    //theme
+    const button = document.querySelector(".theme-btn")
+    button.addEventListener('click',toggleTheme);
     //add to cart
     var addItem = document.getElementsByClassName("shop-item-button")
     for (i=0;i<addItem.length;i++)
@@ -26,6 +29,12 @@ function ready()
         remItemBtn[i].addEventListener('click', remCartItem)
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click',purchaseClick)
+}
+
+function toggleTheme()
+{
+    var ele = document.body
+    ele.classList.toggle('light-mode')
 }
 
 function addToCart(event)
