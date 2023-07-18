@@ -19,12 +19,13 @@ function ready()
         qntyIp[i].addEventListener('change', qntyChanged)
 
     //removing items from cart
-    var remItemBtn = document.getElementsByClassName("btn-rem")
-    var i,button   
-    for (i=0;i<remItemBtn.length;i++)
+    var remItemBtn = document.getElementsByClassName("btn-rem")   
+    for (var i=0;i<remItemBtn.length;i++)
         //when button is 'clicked', event listener is added & performs fnct described
         //event listener returns an event
         remItemBtn[i].addEventListener('click', remCartItem)
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click',purchaseClick)
 }
 
 function addToCart(event)
@@ -36,8 +37,9 @@ function addToCart(event)
     var img = shopItem.getElementsByClassName('shop-item-img')[0].src
     addItemToCart(title, price, img)
     console.log(title, price, img)
-    //updateCartTot()
+    updateCartTot()
 }
+
 function addItemToCart(title, price, img)
 {
     //creates a new divison element 
@@ -64,7 +66,11 @@ function addItemToCart(title, price, img)
             <button class="btn btn-rem" type="button">REMOVE</button>
         </div>`
     mainCtn.append(newRow)
-    updateCartTot()
+
+    //new rows don't have event listeners hooked up to it because it wasn't there when the page was loaded
+    newRow.getElementsByClassName('btn-rem')[0].addEventListener('click', remCartItem)
+    newRow.getElementsByClassName('cart-qnty-ip')[0].addEventListener('change', qntyChanged)
+
 }
 
 function qntyChanged(event)
@@ -110,4 +116,14 @@ function updateCartTot()
     total = Math.round(total*100)/100
     //changing the inner text area of the price to the one we got
     document.getElementsByClassName('cart-tot-pri')[0].innerText = '$' + total
+}
+
+function purchaseClick()
+{
+    alert("Thank you! Your order has been placed.")
+    var fullList = document.getElementsByClassName('cart-items')[0]
+    //deleting each rows one by one -> if we delete the whole div as a whole, total cannot be updated
+    while (fullList.hasChildNodes())
+        fullList.removeChild(fullList.firstChild)
+    updateCartTot()
 }
