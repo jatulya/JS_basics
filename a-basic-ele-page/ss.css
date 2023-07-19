@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(180, 62, 235);
+}
+h1{
+    text-align: center;
+    color: navy;
+    font-family: cursive;
+}
+.changeBg{
+    padding-top: 1%;
+    padding-left: 45%;
+}
+button{
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: rgb(233, 159, 145);
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+h3{
+    color: #afd6ad;
+}
