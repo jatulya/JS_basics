@@ -18,6 +18,28 @@ button{
     font-size: 1rem;
     font-family: 'Times New Roman', Times, serif;
 }
-h3{
-    color: #afd6ad;
+.mg-box{
+    background-color: cornsilk;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+
 }
+#submitBtn{
+    background-color: black;
+    color: aliceblue;
+}
+#msg{
+
+}
+.msg-cont{
+    width: fit-content;
+}
+h4{
+    margin-bottom:.7em;
+    text-align: center;
+}
+.feedback{
+    max-width: 50vw;
+}
+
