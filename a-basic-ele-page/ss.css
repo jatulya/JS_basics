@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(89, 11, 125);
+    background-color: #947EC3;
     height: 90%;
     display: grid;
     place-items: center;
@@ -7,7 +7,7 @@ body{
 /* background change */
 h1{
     text-align: center;
-    color: rgb(22, 211, 236);
+    color: rgb(93, 7, 135);
     font-family: cursive;
 }
 button{
@@ -50,13 +50,14 @@ h4{
     color: aliceblue;
     cursor: pointer;
 }
-.feedback{
+.error{
     background-color: rgb(147, 165, 205);
     font-size: 1.2rem;
     width: 380px ;
     padding: 10px;
     display: none;
 }
+.show{ display: block;}
 .msg-cont{
     color:brown;
 }
