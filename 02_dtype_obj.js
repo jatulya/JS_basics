@@ -23,3 +23,8 @@ console.log(obj1)
 let s = "Beenu"
 s = s + 2
 console.log(s)
+
+//converting types
+let a = "98"
+a=Number.parseInt(a)//converts it into number
+console.log(typeof a)
