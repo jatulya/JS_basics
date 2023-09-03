@@ -22,5 +22,11 @@ switch(day) {
 //ternary example, can be used anywhere, anyway
 a = 17
 console.log("You can", (a>=18)? "drive, Hurray!!":"not drive. Wait for a while!")
-/*note that i didnt add any extra space after "can" or before "drive" and "not drive" 
+/*note that I didn't add any extra space after "can" or before "drive" and "not drive" 
 because a space is there by default*/
+
+//conditional operators
+let b = "17"
+console.log(b==a) //false -> == checks values are equal
+console.log(a===b) //false -> checks if values and types are equal
+console.log(a !== b) //true -> checks if values are not equal or its type
