@@ -15,3 +15,5 @@ alert(`The entered value is ${b}`) //shows a message in a box on the screen, not
 
 //for printing values of variables between sentences, use `...${var_name}...`
 console.log(`Hi, ${b}`) 
+//or
+console.log("Hi "+ b)

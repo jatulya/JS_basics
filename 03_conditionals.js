@@ -27,6 +27,6 @@ because a space is there by default*/
 
 //conditional operators
 let b = "17"
-console.log(b==a) //false -> == checks values are equal
+console.log(b==a) //true -> == checks values are equal
 console.log(a===b) //false -> checks if values and types are equal
 console.log(a !== b) //true -> checks if values are not equal or its type
