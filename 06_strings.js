@@ -6,3 +6,10 @@ console.log(name2.length)
 //${varname} -> this usage is called string interpalation
 let sentence = `Nikhil's Friend's name is "Pramod"` 
 console.log(sentence)
+
+// escape sequences
+name1 = "banana \'s world" //\' char
+console.log(name1)
+console.log("Hello \n World\r") // new line character
+console.log("usage of escape char r -> let's see what \r happens")
+//brings the curson to the beginning of the line ->here it prints "happens escape char r -> let's see"
