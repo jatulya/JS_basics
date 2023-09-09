@@ -32,11 +32,17 @@ console.log(obj1)
 const obj2 = {
     Rana: 55, Ashru: 78, Reeti: 73, Vanshi : 99
 }
-//for in loops 
+//printing the keys and vals using for loop
+for (let i=0; i<Object.keys(marks).length; i++){
+  console.log(`Marks of ${Object.keys(marks)[i]}: ${marks[Object.keys(marks)[i]]}`)
+    /* Object.keys(marks) -> an array containing the keys
+       Object.keys(marks).length -> gives the length of the array
+       Object.keys(marks)[i] -> gives the ith key
+       marks[Object.keys(marks)[i]] -> gives the value of ith key */
+}
+
+//simpler version -> for in loops 
 for (let a in obj2)
  console.log("Student: " + a + ` Their Marks: ${obj2[a]}`)
-//for of loops
-for (let a of "Raniganj")
-  console.log(a)
-for (let a in "Ranigang")
- console.log(a)
+
+
