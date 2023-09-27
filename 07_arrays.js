@@ -21,3 +21,15 @@ b.splice(4, 3, "Hannah", null, 55, true)
 console.log(b) //[ 1, 2, 4, 8, 'Hannah', null, 55, true ]
 console.log(b.slice(3)) //[8, 'Hannah', null, 55, true]
 console.log(b.slice(3, 6)) // [8, 'Hannah', null]
+
+//for each
+let a = [1, 2, 3, 4, 5]
+a.forEach((ele) => {
+  console.log(ele + "*" + ele)
+  ele = ele*ele;
+  console.log(ele)
+})
+
+//Array.from
+let ar = Array.from("Hannah") //makes an array ar from "Hannah"
+console.log(ar) //o/p -> ['H','a','n','n','a','h']

@@ -38,8 +38,7 @@ console.log(sentence.endsWith('best!')); //op ->true
 console.log(sentence.endsWith('best', 17)); //op-> true
 //17 -> the end position of the string searching for
 const str2 = 'Is this a question?';
-console.log(str2.endsWith('question'));
-// Expected output: false
+console.log(str2.endsWith('question')); // Expected output: false
 console.log(sentence.endsWith('are'))
 
 sentence = sentence.concat(" 1000")
