@@ -3,15 +3,15 @@
 <head>
     <title>Basic Styles</title>
     <link rel="stylesheet" href="ss.css"/>
-    <script src="script.js" async></script>
+    <!--script src="script.js" async></!--script-->
 </head>
 
 <body>
     <h1>BASIC DEVELOPMENT USING JS</h1>
 
-    <div class="changeBg">
+    <!--div class="changeBg">
         1. <button> Change Bg </button>
-    </div><br>
+    </!--div><br-->
 
     <div class="mg-box">
         <h4>
@@ -19,12 +19,25 @@
             Type Here.
         </h4>
         <form id="msg-form">
-            <input type="text" name=""  id="msg" placeholder="Enter your message here..." ><br><br>
+            <input type="text" name="msg"  id="msg" placeholder="Enter your message here..." ><br><br>
+            <input type="text" name="name1"  id="name1" placeholder="Enter your name" ><br><br>
+            <textarea cols="30" rows="5" name="addr" id="addr" placeholder="Type Your address"></textarea><br><br>
+            <select class="form-select" name="who" id = "who" aria-label="Default select example">
+                <option selected>Select type</option>
+                <option value="1">Donor</option>
+                <option value="2">Charity organization</option>
+                <option value="3">Volunteer</option>
+              </select>
             <input type="submit" name="" id="submitBtn" class="btn"> 
         </form>
-        <h5 class="error">Please enter a value to pass</h5>
         <h4 class="msg-cont">Hey People!!!</h4>
+        <h5 class="error">We can't read ur mind..Type something to display</h5>
     </div>
     
 </body>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+    
+
+</script>
 </html>
