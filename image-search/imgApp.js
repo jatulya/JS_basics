@@ -30,7 +30,7 @@ async function searchImg(){
     console.log("inside searchImg function")
     inputData = searchEle.value;
     //the url to fetch the images from the unsplash acc to the inputData provided at the given page 
-    const url = `https://api.unsplash.com/search/photo?page=${page}&query=${inputData}&client_id=${accessKey}` 
+    const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}` 
     //fetches the response
     const response = await fetch(url)
     const data = await response.json() //converts the response to json 
@@ -50,7 +50,7 @@ async function searchImg(){
         img.src = res.urls.small
         img.alt = res.alt_description
         const imgLink = document.createElement('a')
-        imgLink.hreg = res.links.html
+        imgLink.href = res.links.html
         imgLink.target = "_blank"
         imgLink.textContent = res.alt_description
         //pushing it to the div 
