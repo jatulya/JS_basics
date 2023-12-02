@@ -1,16 +1,33 @@
 console.log("Welcome to behind the scenes of Image Search App!! ")
 const accessKey = "XE0W9ytopdGaxsRAEkcg4m8mJvfOD5q8LZ1PYh8rzcQ" // access key -> from the app created in unsplash.com
-
+//console.log(accessKey)
 //getting elements from the html page
-const formEle = document.querySelector("form")
+const searchBtn = document.getElementById('search-btn')
 const searchEle = document.getElementById("search-input")
 const searchRes = document.querySelector(".search-results")
 const showMore = document.getElementById("showmore-btn")
+console.log(searchBtn, searchEle, searchRes, showMore)
 
 let inputData = ""
 let page = 1
 
+document.addEventListener('DOMContentLoaded', function(){
+    console.log("inside domcontentloaded")
+    //adding event listenter to the form -> button inside the form
+    searchBtn.addEventListener("click", (event)=>{
+        event.preventDefault();
+        page = 1;
+        searchImg()
+        console.log("added event listerner to search")
+    })
+    //showing more images when button is clicked
+    showMore.addEventListener("click", ()=>{
+        searchImg()
+    })
+})
+
 async function searchImg(){
+    console.log("inside searchImg function")
     inputData = searchEle.value;
     //the url to fetch the images from the unsplash acc to the inputData provided at the given page 
     const url = `https://api.unsplash.com/search/photo?page=${page}&query=${inputData}&client_id=${accessKey}` 
@@ -18,9 +35,11 @@ async function searchImg(){
     const response = await fetch(url)
     const data = await response.json() //converts the response to json 
     const results = data.results 
+    console.log("Fetched results..", results)
 
     if (page===1){
         searchRes.innerHTML=""
+        console.log("What's the point in this")
     }
     //mapping the results to the div element
     results.map((res) => {
@@ -37,7 +56,8 @@ async function searchImg(){
         //pushing it to the div 
         imgWrap.appendChild(img)
         imgWrap.appendChild(imgLink)
-        imgWrap.appendChild(imgWrap)
+        searchRes.appendChild(imgWrap)
+        console.log("at the end of mapping function")
     });
 
     page++
